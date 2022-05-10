@@ -65,13 +65,14 @@ namespace PHONEBOOK
                             Console.WriteLine("Enter the name of the contact to be deleted: ");
                             name = Console.ReadLine();
                             phonebook.DeleteContact(name);
+                            var phoneBookSerialized = JsonConvert.SerializeObject(phonebook);
+                            File.WriteAllText("programData.json", phoneBookSerialized);
                             Console.WriteLine("Contact deleted");
                             Console.WriteLine("To continue press ENTER");
                             break;
                         }
                     case "5":
                         {
-
                             return;
                         }
                     default:
